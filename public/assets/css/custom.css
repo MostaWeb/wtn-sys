@@ -1,0 +1,24 @@
+/* Write your custom CSS here */
+body,h1,h2,h3,h4,h5,h6,p,span,div,ul li,a,button,input, th {
+    font-family: 'Tajawal', sans-serif !important;
+}
+.dropdown-menu-end {
+    --bs-position: end;
+    left: 0;
+    right: auto;
+}
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    direction: ltr;
+    float: left;
+}
+.form-floating>label {
+    right: 0;
+    left: auto;
+}
+.form-check {
+    padding-right: 1.5em;
+}
+.form-check .form-check-input {
+    float: right;
+    margin-right: -1.5em;
+}
