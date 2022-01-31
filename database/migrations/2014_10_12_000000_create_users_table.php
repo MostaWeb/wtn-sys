@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->date('emp_date')->nullable();
             $table->integer('emp_number')->nullable();
             $table->string('job_name')->nullable();
-            $table->enum('mangement', ['الموارد البشرية', 'المالية'])->nullable();
+            $table->integer('department_id')->unsigned()->nullable();
             $table->string('nationality')->nullable();
             $table->string('area')->nullable();
             $table->string('avatar')->default('avatar.png');

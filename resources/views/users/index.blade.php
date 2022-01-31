@@ -20,6 +20,7 @@
                         <tr>
                             <th>#</th>
                             <th>الاسم</th>
+                            <th>الصلاحية</th>
                             <th>المسمى الوظيفي</th>
                             <th>الرقم الوظيفي</th>
                             <th>الحالة</th>
@@ -31,6 +32,9 @@
                         <tr>
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
+                            <td> @foreach ($user->roles()->get() as $role)
+                                {{ $role->display_name }}
+                                @endforeach</td>
                             <td>{{ $user->job_name }}</td>
                             <td>{{ $user->emp_number }}</td>
                             <td>{{ $user->status }}</td>
