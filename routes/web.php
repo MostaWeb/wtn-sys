@@ -24,4 +24,5 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::group(['prefix'=>'dashboard', 'middleware'=>['auth']], function() {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('/users', UserController::class);
+    Route::resource('/departments', DepartmentController::class);
 });

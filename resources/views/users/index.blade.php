@@ -22,6 +22,7 @@
                             <th>الاسم</th>
                             <th>الصلاحية</th>
                             <th>المسمى الوظيفي</th>
+                            <th>القسم</th>
                             <th>الرقم الوظيفي</th>
                             <th>الحالة</th>
                             <th></th>
@@ -36,6 +37,7 @@
                                 {{ $role->display_name }}
                                 @endforeach</td>
                             <td>{{ $user->job_name }}</td>
+                            <td>{{ $user->department->name }}</td>
                             <td>{{ $user->emp_number }}</td>
                             <td>{{ $user->status }}</td>
                             <td><a class="text-dark" href="{{ route('users.show', $user->id) }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> عرض</a></td>

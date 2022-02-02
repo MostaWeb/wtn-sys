@@ -25,10 +25,10 @@ class CreateUsersTable extends Migration
             $table->date('emp_date')->nullable();
             $table->integer('emp_number')->nullable();
             $table->string('job_name')->nullable();
-            $table->integer('department_id')->unsigned()->nullable();
+            $table->unsignedInteger('department_id');
             $table->string('nationality')->nullable();
             $table->string('area')->nullable();
-            $table->string('avatar')->default('avatar.png');
+            $table->string('avatar')->default('uploads/avatar.png');
             $table->enum('status', ['اجازة', 'متاح', 'خارج الخدمة'])->nullable();
             $table->rememberToken();
             $table->timestamps();

@@ -12,8 +12,8 @@
       <li class="{{ request()->is('users') ? 'active-page' : '' }}">
         <a href="{{ route('users.index') }}"><i data-feather="user"></i>المستخدمين</a>
       </li>
-      <li>
-        <a href="calendar.html"><i data-feather="calendar"></i>Calendar</a>
+      <li class="{{ request()->is('departments') ? 'active-page' : '' }}">
+        <a href="{{ route('departments.index') }}"><i data-feather="calendar"></i>الاقسام و الإدارة</a>
       </li>
       <li>
         <a href="social.html"><i data-feather="user"></i>Social</a>

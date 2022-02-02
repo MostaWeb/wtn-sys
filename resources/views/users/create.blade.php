@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">إضافة مستخدم</h5>
-                <form method="post" action="{{ route('users.store') }}">
+                <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-3">
                       <label for="username" class="col-sm-2 col-form-label">إسم المستخدم</label>
@@ -85,15 +85,13 @@
                           <div class="col">
                         <select class="form-select" name="department_id" aria-label="Default">
                             
-                                                                        
-                            <option value="الموارد البشرية"  name="departmentName">الموارد البشرية</option>
-                            
+                          @foreach ($departments as $department)
+                          <option value="{{ $department->id }}"  name="department_id">{{ $department->name }}</option>
+                          @endforeach                                             
                                                                                     
                                                                           
                       </select>
                       </div>
-
-                    
                       
                       
                     </div>
@@ -116,84 +114,45 @@
                     </div>
                     
                     
+                    <div class="row mb-3">
                     
-
-                    <fieldset class="row mb-3" id="role" name="role">
-                      <legend class="col-form-label col-sm-2 pt-0">الصلاحية</legend>
-                      <div class="col-sm-10">
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="role" id="admin" value="admin" >
-                          <label class="form-check-label" for="admin">
-                            مدير النظام
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="role" id="user" value="user">
-                          <label class="form-check-label" for="user">
-                            موظف
-                          </label>
-                        </div>
-                        
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="role" id="hr" value="hr">
-                          <label class="form-check-label" for="hr">
-                            موظف موارد بشرية
-                          </label>
-                        </div>
-                        
-                        
-                                              
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="role" id="finance" value="finance">
-                          <label class="form-check-label" for="finance">
-                            موظف مالية  
-                          </label>
-                        </div>
-                        
-                        
-                        
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="role" id="manager" value="manager">
-                          <label class="form-check-label" for="manager">
-                            مدير مباشر 
-                          </label>
-                        </div>
-                        
-                        
-                        
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="role" id="sectionManager" value="sectionManager">
-                          <label class="form-check-label" for="sectionManager">
-                            مدير الإدارة  
-                          </label>
-                        </div>
-                        
-                        
-                        
-                        
-
+                
+                      <label for="department" class="col-sm-2 col-form-label">الصلاحية</label>
+                          <div class="col-sm-10">
+                        <select class="form-select" name="role" aria-label="Default">
+                            
+                          @foreach ($roles as $role)
+                          <option value="{{ $role->name }}"  name="role">{{ $role->display_name }}</option>
+                         @endforeach
+                                             
+                                                                                    
+                                                                          
+                      </select>
                       </div>
-                    </fieldset>
+                      
+                      
+                    </div>
+
                     
                     
                     <fieldset class="row mb-3" id="status" name="status">
                       <legend class="col-form-label col-sm-2 pt-0">الحالة</legend>
                       <div class="col-sm-10">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="status" id="vecation" value="vecation" >
+                          <input class="form-check-input" type="radio" name="status" id="vecation" value="اجازة" >
                           <label class="form-check-label" for="vecation">
                             إجازة
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="status" id="available" value="available">
+                          <input class="form-check-input" type="radio" name="status" id="available" value="متاح">
                           <label class="form-check-label" for="available">
                             متاح
                           </label>
                         </div>
                         
                            <div class="form-check">
-                          <input class="form-check-input" type="radio" name="status" id="retired" value="retired">
+                          <input class="form-check-input" type="radio" name="status" id="retired" value="خارج الخدمة">
                           <label class="form-check-label" for="retired">
                             خارج الخدمة
                           </label>
@@ -210,9 +169,7 @@
                         
                       </div>
                         
-                            
-                    
-                    
+                          
                     <input type="submit" name="save" value="إضافة" class="btn btn-primary">
                   </form>
             </div>
